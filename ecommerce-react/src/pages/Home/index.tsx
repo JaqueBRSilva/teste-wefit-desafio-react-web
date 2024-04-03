@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import RELOAD_PAGE_IMG_LARGE from '../../assets/reload-page-img-lg.svg'
 import RELOAD_PAGE_IMAGE from '../../assets/reload-page-img.svg'
-import CustomButton from "../../components/CustomButton"
 import LoadingSpinner from "../../components/LoadingSpinner"
 import MovieCard from "../../components/MovieCard"
+import ReloadButton from "../../components/ReloadButton"
 import { getMovies } from "../../services/movies"
 import { MoviesProps } from "../../types/Movies"
 import { ButtonContainer, ReloadPageContainer, ReloadPageImage, ReloadText } from "./styles"
@@ -62,7 +62,7 @@ const Home = () => {
                         />
 
                         <ButtonContainer>
-                            <CustomButton
+                            <ReloadButton
                                 textContent="Recarregar página"
                                 onClick={() => handleReloadPage()}
                             />
