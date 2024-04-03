@@ -6,7 +6,7 @@ import MovieCard from "../../components/MovieCard"
 import ReloadButton from "../../components/ReloadButton"
 import { getMovies } from "../../services/movies"
 import { MoviesProps } from "../../types/Movies"
-import { ButtonContainer, ReloadPageContainer, ReloadPageImage, ReloadText } from "./styles"
+import { ButtonContainer, GridContainer, ReloadPageContainer, ReloadPageImage, ReloadText } from "./styles"
 
 const Home = () => {
     const [moviesList, setMoviesList] = useState([])
@@ -71,14 +71,18 @@ const Home = () => {
 
                 ) : (
 
-                    moviesList.map((movie: MoviesProps) => (
-                        <MovieCard
-                            id={movie.id}
-                            image={movie.image}
-                            title={movie.title}
-                            price={(movie.price).toFixed(2).replace('.', ',')}
-                        />
-                    ))
+                    <GridContainer>
+                        {
+                            moviesList.map((movie: MoviesProps) => (
+                                <MovieCard
+                                    id={movie.id}
+                                    image={movie.image}
+                                    title={movie.title}
+                                    price={(movie.price).toFixed(2).replace('.', ',')}
+                                />
+                            ))
+                        }
+                    </GridContainer>
 
                 )}
         </>

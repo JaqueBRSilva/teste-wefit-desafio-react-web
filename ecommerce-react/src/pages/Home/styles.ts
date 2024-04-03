@@ -27,3 +27,14 @@ export const ReloadPageImage = styled.img`
 `
 
 export const ButtonContainer = styled.div``
+
+export const GridContainer = styled.div`
+
+    @media screen and (min-width: 992px){
+        display: grid;
+        grid-auto-flow: row; 
+        grid-template-columns: 2fr 2fr 2fr; 
+        gap: 1rem;
+    }
+    
+`

@@ -5,6 +5,12 @@ import CustomButton from "../CustomButton";
 const CardContainer = styled.div`
     display: flex;
     margin: 0 1rem;
+    justify-content: center;
+
+    @media screen and (min-width: 992px) {
+        margin: 0;
+    }
+
 `
 
 const MovieCardContainer = styled.div`
@@ -12,16 +18,26 @@ const MovieCardContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 328px;
     min-height: 30vh;
     border-radius: 4px;
     padding: 1.2rem;
     background-color: var(--white);
     margin-bottom: 1rem;
+
+    @media screen and (min-width: 992px) {
+        min-width: 28rem;
+        min-height: 24rem;
+    }
+
 `
 
 const MoviePoster = styled.img`
     height: 12rem;
+
+    @media screen and (min-width: 992px) {
+        height: 15rem;
+    }
 `
 
 const MovieTitle = styled.p`
@@ -56,7 +72,7 @@ function MovieCard({ ...props }: MoviesProps) {
                     textContent="ADICIONAR AO CARRINHO"
                 />
             </MovieCardContainer>
-         </CardContainer>
+        </CardContainer>
     )
 }
 
