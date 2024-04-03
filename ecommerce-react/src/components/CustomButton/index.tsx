@@ -12,8 +12,6 @@ const ButtonMain = styled.button<ButtonColor_Props>`
     align-items: center;
     justify-content: center;
     background-color: ${({ buttonColor }) => buttonColor != null ? buttonColor : '#009edd'};
-
-    @media screen and (min-width: 992px) {    }
 `
 
 const ButtonLeftCartContainer = styled.div`
@@ -43,7 +41,7 @@ function CustomButton({ ...props }: CustomButtonProps) {
     return (
         <ButtonMain onClick={() => props.onClick()}>
 
-            {(props.hasLeftIcon != false || null) &&
+            {(props.hasLeftIcon) &&
                 <ButtonLeftCartContainer>
                     <ButtonLeftCartIcon
                         src={ADD_CARD_ICON}
