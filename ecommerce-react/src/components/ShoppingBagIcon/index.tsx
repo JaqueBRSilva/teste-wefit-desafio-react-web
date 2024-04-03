@@ -5,14 +5,17 @@ import CountDownProductsInfo from "../CountDownProductsInfo"
 const ProductsContainer = styled.div`
     display: flex;
     gap: 1.2rem;
-    align-items: center;
+    align-items: center;   
+
+    @media screen and (min-width: 992px){
+        gap: 0.4rem;
+    }
 `
 
 const GroupContainer = styled.div`
     @media screen and (min-width: 992px){
         display: grid;
         justify-items: flex-end;
-        margin-right: -3em;
     }
 `
 
@@ -27,8 +30,17 @@ const ItemName = styled.p`
     }
 `
 
+const IconContainer = styled.div`
+    @media screen and (min-width: 992px){
+        margin: 0;
+        margin-left: 1rem;
+        justify-self: end;
+    }
+`
+
 const Icon = styled.img`
     height: 1.8rem;
+    display: flex;
 `
 
 function ShoppingBagIcon() {
@@ -43,10 +55,12 @@ function ShoppingBagIcon() {
                 <CountDownProductsInfo />
             </GroupContainer>
 
-            <Icon
-                src={BAG_ICON}
-                alt="sacola de compras"
-            />
+            <IconContainer>
+                <Icon
+                    src={BAG_ICON}
+                    alt="sacola de compras"
+                />
+            </IconContainer>
         </ProductsContainer>
     )
 }
