@@ -6,6 +6,14 @@ export const GlobalStyle = createGlobalStyle`
 
     --white: #FFFFFF;
     --mid-grey: #999;
+    --blue: #009edd;
+
+    
+    background-color: var(--background);
+
+    @media screen and (min-width: 992px){ 
+      margin: 0 10rem;
+    }
   }
 
   * {
@@ -16,16 +24,10 @@ export const GlobalStyle = createGlobalStyle`
     font-optical-sizing: auto;
     font-style: normal;
   
-    background-color: var(--background);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    @media screen and (min-width: 992px){
-      margin: 0 2rem;
-    }
-
   }
 
   li {
