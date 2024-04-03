@@ -15,19 +15,15 @@ export const ReloadText = styled.p`
     font-size: 1.6rem;
     font-weight: 700;
     text-align: center;
-    background-color: transparent;
     margin: 2rem 0;
 `
 
 export const ReloadPageImage = styled.img`
     width: 85%;
-    background-color: transparent;
    
     @media screen and (min-width: 992px) {
         width: 55%;
     }
 `
 
-export const ButtonContainer = styled.div`
-    background-color: transparent;
-`
+export const ButtonContainer = styled.div``

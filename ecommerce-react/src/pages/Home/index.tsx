@@ -45,11 +45,11 @@ const Home = () => {
     return (
         <>
             {
-                (isLoading) ? (
+                (isLoading == true) ? (
 
                     <LoadingSpinner />
 
-                ) : (moviesList.length == 0 && isLoading == false) ? (
+                ) : (isLoading == false && moviesList.length == 0) ? (
 
                     <ReloadPageContainer>
                         <ReloadText>
