@@ -76,7 +76,7 @@ const Home = () => {
                             id={movie.id}
                             image={movie.image}
                             title={movie.title}
-                            price={movie.price}
+                            price={(movie.price).toFixed(2).replace('.', ',')}
                         />
                     ))
 
