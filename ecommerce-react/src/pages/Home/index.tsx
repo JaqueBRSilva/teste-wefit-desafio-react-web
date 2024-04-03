@@ -17,7 +17,7 @@ const Home = () => {
         setIsLoading(true)
 
         const movies = await getMovies()
-        setMoviesList(movies)
+        setMoviesList(movies || [])
 
         setIsLoading(false)
     }
@@ -49,7 +49,7 @@ const Home = () => {
 
                     <LoadingSpinner />
 
-                ) : (isLoading == false && moviesList.length == 0) ? (
+                ) : (moviesList.length == 0) ? (
 
                     <ReloadPageContainer>
                         <ReloadText>
