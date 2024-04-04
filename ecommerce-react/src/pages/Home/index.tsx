@@ -14,7 +14,7 @@ const Home = () => {
     const [list, setList] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [reloadImage, setReloadImage] = useState('')
-
+    const [search, setSearch] = useState('')
     const { movies, setMovies } = useContext(MoviesListContext)
 
     const fetchMoviesList = async () => {
@@ -40,6 +40,20 @@ const Home = () => {
         } else {
             setReloadImage(RELOAD_PAGE_IMG_LARGE)
         }
+    }
+
+    const getSearchResults = (results: []) => {
+        setIsLoading(true)
+
+        setTimeout(() => {
+
+            setList([])
+            setList(results)
+
+            setIsLoading(false)
+
+        }, 2 * 1000)
+
     }
 
     useEffect(() => {
@@ -77,7 +91,10 @@ const Home = () => {
                 ) : (list.length != 0) ? (
 
                     <>
-                        <SearchBar />
+                        <SearchBar
+                            value={search}
+                            onSearchResult={(text) => getSearchResults(text)}
+                        />
 
                         <GridContainer>
                             {
@@ -92,9 +109,7 @@ const Home = () => {
                             }
                         </GridContainer>
                     </>
-
-                ) : null
-            }
+                ) : null}
         </>
     )
 }

@@ -3,10 +3,8 @@ import styled from "styled-components"
 import MAGNIFYING_GLASS_BLACK from '../../assets/magnifying-glass-black.png'
 import MAGNIFYING_GLASS from '../../assets/magnifying-glass.png'
 import { MoviesListContext } from "../../contexts/MoviesList"
-import { GridContainer } from "../../pages/Home/styles"
 import { MoviesProps } from "../../types/Movies"
-import LoadingSpinner from "../LoadingSpinner"
-import MovieCard from "../MovieCard"
+import { SearchBarProps } from "../../types/SearchBar"
 
 const SearchContainer = styled.div`
     display: flex;
@@ -55,13 +53,9 @@ const SearchIcon = styled.img`
     width: 1.2rem;
 `
 
-
-function SearchBar() {
-    const [contentSearch, setContentSearch] = useState('')
-    const [moviesSearched, setMoviesSearched] = useState([])
+function SearchBar({ ...props }: SearchBarProps) {
     const [iconChange, setIconChange] = useState(MAGNIFYING_GLASS)
-    const [isLoading, setIsLoading] = useState(false)
-
+    const [contentSearch, setContentSearch] = useState('')
     const { movies } = useContext(MoviesListContext)
 
     const onChangeIcon = () => {
@@ -73,58 +67,30 @@ function SearchBar() {
     }
 
     const handleSearchMovieByTitle = (title: string) => {
-        setIsLoading(true)
-
         const movieResult: [] | any = movies.filter((movie: MoviesProps) => movie.title.toLowerCase().includes((title.toLowerCase())))
-        setMoviesSearched(movieResult)
-
-        setIsLoading(false)
+        props.onSearchResult(movieResult)
     }
 
     return (
-        <>
-            <SearchContainer>
-                <SearchInput
-                    placeholder="Buscar filme pelo nome"
-                    value={contentSearch}
-                    onChange={(event) => {
-                        setContentSearch(event.target.value)
-                        onChangeIcon()
-                    }}
-                    onBlur={event => handleSearchMovieByTitle(event.target.value)}
-                    type="text"
-                    enterKeyHint={"search"}
-                />
+        <SearchContainer>
+            <SearchInput
+                placeholder="Buscar filme pelo nome"
+                value={contentSearch}
+                onChange={(event) => {
+                    onChangeIcon()
+                    setContentSearch(event.target.value)
+                }}
+                onBlur={event => handleSearchMovieByTitle(event.target.value)}
+                type="text"
+                enterKeyHint={"send"}
+            />
 
-                <SearchButton type="submit"
-                    onClick={() => handleSearchMovieByTitle(contentSearch)}
-                >
-                    <SearchIcon src={iconChange} />
-                </SearchButton>
-            </SearchContainer>
-
-            {
-                (isLoading == true) ? (
-
-                    <LoadingSpinner />
-
-                ) : (moviesSearched.length != 0) ? (
-
-                    <GridContainer>
-                        {
-                            moviesSearched.map((movie: MoviesProps) => (
-                                <MovieCard
-                                    id={movie.id}
-                                    image={movie.image}
-                                    title={movie.title}
-                                    price={(movie.price).toFixed(2).replace('.', ',')}
-                                />
-                            ))
-                        }
-                    </GridContainer>
-
-                ) : null}
-        </>
+            <SearchButton type="submit"
+                onClick={() => handleSearchMovieByTitle(contentSearch)}
+            >
+                <SearchIcon src={iconChange} />
+            </SearchButton>
+        </SearchContainer>
     )
 }
 
