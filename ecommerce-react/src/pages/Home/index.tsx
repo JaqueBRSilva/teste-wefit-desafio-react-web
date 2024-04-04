@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react"
 import RELOAD_PAGE_IMG_LARGE from '../../assets/reload-page-img-lg.svg'
 import RELOAD_PAGE_IMAGE from '../../assets/reload-page-img.svg'
+import DefaultButton from "../../components/DefaultButton"
 import LoadingSpinner from "../../components/LoadingSpinner"
 import MovieCard from "../../components/MovieCard"
-import ReloadButton from "../../components/ReloadButton"
 import SearchBar from "../../components/SearchBar"
 import { MoviesListContext } from "../../contexts/MoviesList"
 import { getMovies } from "../../services/movies"
@@ -81,7 +81,7 @@ const Home = () => {
                         />
 
                         <ButtonContainer>
-                            <ReloadButton
+                            <DefaultButton
                                 textContent="Recarregar página"
                                 onClick={() => handleReloadPage()}
                             />
