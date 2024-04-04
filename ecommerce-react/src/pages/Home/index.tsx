@@ -5,7 +5,7 @@ import DefaultButton from "../../components/DefaultButton"
 import LoadingSpinner from "../../components/LoadingSpinner"
 import MovieCard from "../../components/MovieCard"
 import SearchBar from "../../components/SearchBar"
-import { MoviesListContext } from "../../contexts/MoviesList"
+import { MoviesListContext } from "../../contexts/MoviesListContext"
 import { getMovies } from "../../services/movies"
 import { MoviesProps } from "../../types/Movies"
 import { ButtonContainer, GridContainer, ReloadPageContainer, ReloadPageImage, ReloadText } from "./styles"
@@ -14,15 +14,15 @@ const Home = () => {
     const [list, setList] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [reloadImage, setReloadImage] = useState('')
-    const [search, setSearch] = useState('')
-    const { movies, setMovies } = useContext(MoviesListContext)
+    const { saveMovies } = useContext(MoviesListContext)
+    const search = ''
 
     const fetchMoviesList = async () => {
         setIsLoading(true)
 
         const movies = await getMovies()
         setList(movies || [])
-        setMovies(movies)
+        saveMovies(movies)
 
         setIsLoading(false)
     }

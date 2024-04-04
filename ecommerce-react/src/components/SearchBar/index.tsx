@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import styled from "styled-components"
 import MAGNIFYING_GLASS_BLACK from '../../assets/magnifying-glass-black.png'
 import MAGNIFYING_GLASS from '../../assets/magnifying-glass.png'
-import { MoviesListContext } from "../../contexts/MoviesList"
+import { MoviesListContext } from "../../contexts/MoviesListContext"
 import { MoviesProps } from "../../types/Movies"
 import { SearchBarProps } from "../../types/SearchBar"
 
