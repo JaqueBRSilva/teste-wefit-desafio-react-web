@@ -93,7 +93,7 @@ const Home = () => {
                     <>
                         <SearchBar
                             value={search}
-                            onSearchResult={(text) => getSearchResults(text)}
+                            onSearchResult={async (text) => getSearchResults(text)}
                         />
 
                         <GridContainer>
