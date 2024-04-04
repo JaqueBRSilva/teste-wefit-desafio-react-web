@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { MoviesProps } from "../../types/Movies";
-import CustomButton from "../CustomButton";
+import AddToCartButton from "../AddToCartButton";
 
 const CardContainer = styled.div`
     display: flex;
@@ -29,7 +29,6 @@ const MovieCardContainer = styled.div`
         min-width: 28rem;
         min-height: 24rem;
     }
-
 `
 
 const MoviePoster = styled.img`
@@ -65,10 +64,7 @@ function MovieCard({ ...props }: MoviesProps) {
 
                 <MoviePrice>R$ {props.price}</MoviePrice>
 
-                <CustomButton
-                    id={props.id}
-                    hasLeftIcon={true}
-                    onClick={() => { }}
+                <AddToCartButton
                     textContent="ADICIONAR AO CARRINHO"
                 />
             </MovieCardContainer>
