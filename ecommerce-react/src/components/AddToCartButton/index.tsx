@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import ADD_CARD_ICON from '../../assets/shopping-cart-add.svg';
+import { CartItemsContext } from "../../contexts/CartItemsContext";
 import { AddToCartButtonProps } from "../../types/AddToCartButton";
 
 const ButtonMain = styled.button`
@@ -61,16 +62,7 @@ const ButtonText = styled.p`
 
 function AddToCartButton({ ...props }: AddToCartButtonProps) {
     const [addMovie, setAddMovie] = useState(false)
-    const [add, setAdd] = useState(0)
-
-    function addMoreItems() {
-        setAdd(add + 1)
-    }
-
-    function handleAddMovieToCart() {
-        setAddMovie(true)
-        setAdd(add + 1)
-    }
+    const { totalItemsNumber } = useContext(CartItemsContext)
 
     return (
         <>
@@ -78,12 +70,15 @@ function AddToCartButton({ ...props }: AddToCartButtonProps) {
                 (!addMovie) ? (
 
                     <ButtonMain id={props.id}
-                        onClick={() => handleAddMovieToCart()}
+                        onClick={() => {
+                            setAddMovie(true)
+                            props.onMovieClicked()
+                        }}
                     >
                         <ButtonLeftCartContainer>
                             <ButtonLeftCartIcon
                                 src={ADD_CARD_ICON}
-                                alt="adicionar produto no carrinho"
+                                alt="adicionar filme no carrinho"
                             />
                             <ButtonLeftNumber>0</ButtonLeftNumber>
                         </ButtonLeftCartContainer>
@@ -96,14 +91,14 @@ function AddToCartButton({ ...props }: AddToCartButtonProps) {
                 ) : (
 
                     <ButtonMainActive id={props.id}
-                        onClick={() => addMoreItems()}
+                        onClick={() => props.onMovieClicked()}
                     >
                         <ButtonLeftCartContainer>
                             <ButtonLeftCartIcon
                                 src={ADD_CARD_ICON}
-                                alt="adicionar produto no carrinho"
+                                alt="adicionar filme no carrinho"
                             />
-                            <ButtonLeftNumber>{add}</ButtonLeftNumber>
+                            <ButtonLeftNumber>{totalItemsNumber}</ButtonLeftNumber>
                         </ButtonLeftCartContainer>
 
                         <ButtonText>
