@@ -2,15 +2,15 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --background: #2F2E41;
-
     --white: #FFFFFF;
+    --semi-black: #2F2E41;
     --mid-grey: #999;
-    --blue: #009edd;
+    --light-grey: #D9D9D9;
+    --blue: #009EDD;
     --green: #039B00;
 
     
-    background-color: var(--background);
+    background-color: var(--semi-black);
 
     @media screen and (min-width: 992px){ 
       margin: 0 10rem;
