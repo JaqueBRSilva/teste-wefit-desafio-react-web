@@ -11,6 +11,9 @@ export const GlobalStyle = createGlobalStyle`
 
     
     background-color: var(--semi-black);
+    box-sizing: border-box;
+    margin: 0 1rem;
+
 
     @media screen and (min-width: 992px){ 
       margin: 0 10rem;
