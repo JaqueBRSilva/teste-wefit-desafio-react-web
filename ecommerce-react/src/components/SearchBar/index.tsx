@@ -5,53 +5,8 @@ import MAGNIFYING_GLASS from '../../assets/magnifying-glass.png'
 import { MoviesListContext } from "../../contexts/MoviesListContext"
 import { MoviesProps } from "../../types/Movies"
 import { SearchBarProps } from "../../types/SearchBar"
+import { SearchButton, SearchContainer, SearchIcon, SearchInput } from "./styles"
 
-const SearchContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    margin: 0 1rem;
-    margin-top: -1rem;
-`
-
-const SearchInput = styled.input`
-    margin-bottom: 0.6rem;
-    padding: 1rem;
-    border-radius: 8px;
-    width: 100vw;
-    height: 26px;
-    z-index: 1;
-    text-align: left;
-    font-size: medium;
-    font-weight: 400;
-    
-    &::placeholder {
-        color: var(--mid-grey);
-    }
-
-    &:focus {
-        border: 3px solid var(--blue);
-    }
-`
-
-const SearchButton = styled.button`
-    background: transparent;
-    border: none;
-    width: 6rem;
-    height: 4rem;
-    flex: 1;
-    position: absolute;
-    right: 0;
-    z-index: 99;
-    
-  @media screen and (min-width: 992px) {
-    right: 10rem;
-  }
-
-`
-
-const SearchIcon = styled.img`
-    width: 1.2rem;
-`
 
 function SearchBar({ ...props }: SearchBarProps) {
     const [iconChange, setIconChange] = useState(MAGNIFYING_GLASS)

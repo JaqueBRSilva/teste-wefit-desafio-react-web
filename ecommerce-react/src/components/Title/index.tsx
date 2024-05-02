@@ -1,10 +1,4 @@
-import styled from "styled-components"
-
-const TitleName = styled.h1`
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--white);
-`
+import { TitleName } from "./styles"
 
 function Title() {
     return (

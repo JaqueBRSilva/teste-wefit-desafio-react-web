@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { MoviesProps } from "../../types/Movies";
+import formatCurrencyForBRL from "../../utils/formatCurrency";
 import AddToCartButton from "../AddToCartButton";
+import { CardContainer, MovieCardContainer, MoviePoster, MoviePrice, MovieTitle } from "./styles";
 
 const CardContainer = styled.div`
     display: flex;
@@ -62,7 +64,7 @@ function MovieCard({ ...props }: MoviesProps) {
 
                 <MovieTitle>{props.title}</MovieTitle>
 
-                <MoviePrice>R$ {props.price}</MoviePrice>
+                <MoviePrice>{ formatCurrencyForBRL(props.price) }</MoviePrice>
 
                 <AddToCartButton
                     textContent="ADICIONAR AO CARRINHO"

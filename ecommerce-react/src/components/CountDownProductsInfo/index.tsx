@@ -1,16 +1,15 @@
-import styled from "styled-components"
+import { useContext } from "react"
+import { CartItemsContext } from "../../contexts/CartItemsContext"
+import { Text } from "./styles"
 
-const Text = styled.p`
-    color: var(--mid-grey);
-    font-weight: 600;
-`
 
 function CountDownProductsInfo() {
+    const { totalItemsNumber } = useContext(CartItemsContext)
 
     return (
         <>
             <Text>
-                0 itens
+                {totalItemsNumber} itens
             </Text>
         </>
     )
