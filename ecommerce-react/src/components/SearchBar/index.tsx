@@ -1,5 +1,4 @@
 import { useContext, useState } from "react"
-import styled from "styled-components"
 import MAGNIFYING_GLASS_BLACK from '../../assets/magnifying-glass-black.png'
 import MAGNIFYING_GLASS from '../../assets/magnifying-glass.png'
 import { MoviesListContext } from "../../contexts/MoviesListContext"
@@ -21,13 +20,15 @@ function SearchBar({ ...props }: SearchBarProps) {
         }
     }
 
-    const handleSearchMovieByTitle = (title: string) => {
-        const movieResult: [] | any = movies.filter((movie: MoviesProps) => movie.title.toLowerCase().includes((title.toLowerCase())))
+    const handleSearchMovieByTitle = async (title: string, event?: Event) => {
+        event?.preventDefault()
+
+        const movieResult: [] | any = await movies.filter((movie: MoviesProps) => movie.title.toLowerCase().includes((title.toLowerCase())))
         props.onSearchResult(movieResult)
     }
 
     return (
-        <SearchContainer>
+        <SearchContainer onSubmit={() => handleSearchMovieByTitle(contentSearch)}>
             <SearchInput
                 placeholder="Buscar filme pelo nome"
                 value={contentSearch}
@@ -36,13 +37,12 @@ function SearchBar({ ...props }: SearchBarProps) {
                     setContentSearch(event.target.value)
                 }}
                 onBlur={event => handleSearchMovieByTitle(event.target.value)}
-                type="text"
-                enterKeyHint={"send"}
+                type="search"
+                enterKeyHint={"search"}
+                required
             />
 
-            <SearchButton type="submit"
-                onClick={() => handleSearchMovieByTitle(contentSearch)}
-            >
+            <SearchButton type="submit" >
                 <SearchIcon src={iconChange} />
             </SearchButton>
         </SearchContainer>
