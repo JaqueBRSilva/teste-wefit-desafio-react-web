@@ -4,7 +4,6 @@ export const ReloadPageContainer = styled.div`
     display: flex;
     flex-direction: column;
     height: 75vh;
-    margin: 0 1.2rem;
     padding: 2.1rem;
     background-color: var(--white);
     border-radius: 4px;
@@ -19,22 +18,24 @@ export const ReloadText = styled.p`
 `
 
 export const ReloadPageImage = styled.img`
-    width: 85%;
+    width: 90%;
+    object-fit: contain;
    
     @media screen and (min-width: 992px) {
         width: 55%;
     }
 `
 
-export const ButtonContainer = styled.div``
+export const ButtonContainer = styled.div`
+    margin-top: 1.5rem;
+`
 
-export const GridContainer = styled.div`
+export const MoviesGridContainer = styled.div`
 
     @media screen and (min-width: 992px){
         display: grid;
         grid-auto-flow: row; 
-        grid-template-columns: 2fr 2fr 2fr; 
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(344px, 1fr));
+        column-gap: 1rem;
     }
-    
 `

@@ -2,7 +2,6 @@ import styled from "styled-components"
 
 export const CardContainer = styled.div`
     display: flex;
-    margin: 0 1rem;
     justify-content: center;
 
     @media screen and (min-width: 992px) {
@@ -23,8 +22,8 @@ export const MovieCardContainer = styled.div`
     margin-bottom: 1rem;
 
     @media screen and (min-width: 992px) {
-        min-width: 28rem;
-        min-height: 24rem;
+        width: 21rem;
+        max-width: 25rem;
     }
 `
 

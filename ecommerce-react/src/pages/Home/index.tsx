@@ -8,7 +8,7 @@ import SearchBar from "../../components/SearchBar"
 import { MoviesListContext } from "../../contexts/MoviesListContext"
 import { getMovies } from "../../services/movies"
 import { MoviesProps } from "../../types/Movies"
-import { ButtonContainer, GridContainer, ReloadPageContainer, ReloadPageImage, ReloadText } from "./styles"
+import { ButtonContainer, MoviesGridContainer, ReloadPageContainer, ReloadPageImage, ReloadText } from "./styles"
 
 const Home = () => {
     const [list, setList] = useState([])
@@ -46,13 +46,10 @@ const Home = () => {
         setIsLoading(true)
 
         setTimeout(() => {
-
             setList([])
             setList(results)
-
             setIsLoading(false)
-
-        }, 2 * 1000)
+        }, 1.2 * 1000)
 
     }
 
@@ -96,18 +93,18 @@ const Home = () => {
                             onSearchResult={async (text) => getSearchResults(text)}
                         />
 
-                        <GridContainer>
+                        <MoviesGridContainer>
                             {
                                 list.map((movie: MoviesProps) => (
                                     <MovieCard
-                                        id={movie.id}
+                                        key={movie.id}
                                         image={movie.image}
                                         title={movie.title}
-                                        price={(movie.price).toFixed(2).replace('.', ',')}
+                                        price={movie.price}
                                     />
                                 ))
                             }
-                        </GridContainer>
+                        </MoviesGridContainer>
                     </>
                 ) : null}
         </>
