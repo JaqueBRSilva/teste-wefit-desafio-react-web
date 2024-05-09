@@ -14,7 +14,8 @@ export const ReloadText = styled.p`
     font-size: 1.6rem;
     font-weight: 700;
     text-align: center;
-    margin: 2rem 0;
+    margin-top: 1.7rem;
+    margin-bottom: 1.5rem;
 `
 
 export const ReloadPageImage = styled.img`
@@ -22,12 +23,16 @@ export const ReloadPageImage = styled.img`
     object-fit: contain;
    
     @media screen and (min-width: 992px) {
-        width: 55%;
+        width: 50%;
     }
 `
 
 export const ButtonContainer = styled.div`
     margin-top: 1.5rem;
+
+    @media screen and (min-width: 992px) {
+        margin-top: 0.5rem;
+    }
 `
 
 export const MoviesGridContainer = styled.div`
