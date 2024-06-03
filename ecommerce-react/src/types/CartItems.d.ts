@@ -1,18 +1,18 @@
-import { MoviesProps } from "./Movies";
-
 export interface CartItemsProps {
-    id?: string | number | any;
-    dataMovie: MoviesProps;
+    id?: string;
+    movieCover: string;
+    movieTitle: string;
+    moviePrice: number;
     unitQuantity: number;
-    totalPrice?: number;
+    totalPrice: number;
 }
 
 export interface ICartContext {
-    itemsList: CartItemsProps[];
+    cartItemsList: CartItemsProps[];
     totalItemsNumber: number;
-    addMovieToCart: (itemsList) => void;
-    increaseQuantityItem: () => void;
-    decreaseQuantityItem: () => void;
+    addMovieToCart: (cartItemsList) => void;
+    increaseQuantityItem: (id) => void;
+    decreaseQuantityItem: (id) => void;
     removeItemFromCart: (id: string) => void;
 }
 
